@@ -10,13 +10,16 @@ public class AccountDAO {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String url = "jdbc:mysql://localhost:3306/java_jdbc_basics";
-		String user = "root";
-		String pass ="";
+		
 		
 		
 		
 		try {
+			
+			String url = "jdbc:mysql://localhost:3306/java_jdbc_basics";
+			String user = "root";
+			String pass ="";
+			
 			Connection connection = DriverManager.getConnection(url, user, pass);
 			Statement statement = connection.createStatement();
 			System.out.println(connection);
@@ -29,7 +32,7 @@ public class AccountDAO {
 //			System.out.println(result + " row has been updated..");
 			
 			
-//			int result = statement.executeUpdate("dalete from account where id =1");
+//			int result = statement.executeUpdate("delete from account where id =1");
 //			System.out.println(result + " row has been updated..");
 			
 //			Data generation
