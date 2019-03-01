@@ -21,4 +21,15 @@
   
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>AdditionServlet</servlet-name>
+  <servlet-class>com.rhiodamuthie.trainings.servlets.AdditionServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>AdditionServlet</servlet-name>
+  <url-pattern>/add</url-pattern>
+  
+  </servlet-mapping>
+  
 </web-app>
