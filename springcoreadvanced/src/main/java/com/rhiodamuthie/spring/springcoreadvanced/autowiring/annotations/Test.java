@@ -10,9 +10,10 @@ public class Test {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/rhiodamuthie/spring/springcoreadvanced/autowiring/annotations/conf.xml");
 		
 		Employee e = (Employee) context.getBean("emp");
-		
 		System.out.println(e);
 		
+		User user = (User) context.getBean("user");
+		System.out.println(user);
 
 	}
 

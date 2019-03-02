@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <bean class="com.rhiodamuthie.spring.springcoreadvanced.autowiring.annotations.Employee" name="emp"/>
+<bean class="com.rhiodamuthie.spring.springcoreadvanced.autowiring.annotations.User" name="user"/>
 
 <bean class="com.rhiodamuthie.spring.springcoreadvanced.autowiring.annotations.Address" name="address"/>
+<bean class="com.rhiodamuthie.spring.springcoreadvanced.autowiring.annotations.Address" name="address123"/>
+
+
 </beans>
