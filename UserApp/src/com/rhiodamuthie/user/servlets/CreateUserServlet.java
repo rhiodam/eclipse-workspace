@@ -7,7 +7,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Enumeration;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +22,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 /**
  * Servlet implementation class CreateUserServlet
  */
-@WebServlet("/CreateUserServlet")
+//@WebServlet("/CreateUserServlet")
 public class CreateUserServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -36,7 +39,7 @@ public class CreateUserServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void init() {
+	public void init2() {
 		
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
@@ -45,8 +48,6 @@ public class CreateUserServlet extends HttpServlet {
 		    // TODO Auto-generated catch block
 		    e.printStackTrace();
 		} 
-
-		
 
 		try {
 
@@ -80,6 +81,44 @@ public class CreateUserServlet extends HttpServlet {
 		}
 	}
 
+	public void init(ServletConfig config) {
+		
+		try {
+		    Class.forName("com.mysql.jdbc.Driver");
+		} 
+		catch (ClassNotFoundException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		} 
+
+		try {
+
+			String url = "jdbc:mysql://localhost:3306/java_jdbc_basics";
+			String user = "root";
+			String pass = "";
+
+			connection = DriverManager.getConnection(url, user, pass);
+
+			System.out.println("MySQL connection is :" + connection);
+
+			ServletContext context = config.getServletContext();
+			System.out.println("init()");
+			
+			Enumeration<String> parameterNames = context.getInitParameterNames();
+			
+			while (parameterNames.hasMoreElements()) {
+				
+				String eachName = parameterNames.nextElement();
+				System.out.println("Context Param Name  :" + eachName);
+				System.out.println("Context Param Value :" + context.getInitParameter(eachName));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
